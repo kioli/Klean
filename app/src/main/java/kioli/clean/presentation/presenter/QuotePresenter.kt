@@ -15,7 +15,6 @@ internal class QuotePresenter(private val useCase: QuoteUseCase,
     override var view: QuoteViewI? = null
 
     override fun destroy() {
-        useCase.dispose()
         view = null
     }
 
@@ -24,17 +23,17 @@ internal class QuotePresenter(private val useCase: QuoteUseCase,
         useCase.execute(QuoteObserver(), forceNew)
     }
 
-    private fun sendResultToView(quote: Quote) {
+    private fun sendResultToView(quote: Quote?) {
         view?.setLoadingVisibility(false)
-        val quoteModel = mapper.transform(quote)
-        view?.setQuote(quoteModel)
+        quote?.let {
+            val quoteModel = mapper.transform(it)
+            view?.setQuote(quoteModel)
+        }
     }
 
     private inner class QuoteObserver : BaseObserver<Quote>() {
 
-        override fun onComplete() {
-            // Do nothing
-        }
+        override fun onComplete() {}
 
         override fun onError(exception: Throwable) {
             Log.e("Mandragola", "error getting quote: ${exception.localizedMessage}")
@@ -46,6 +45,7 @@ internal class QuotePresenter(private val useCase: QuoteUseCase,
             editor.putString(QuoteDataStoreDisk.sharedPrefQuoteTextKey, result.text)
             editor.apply()
             this@QuotePresenter.sendResultToView(result)
+            useCase.isExecuting = false
         }
     }
 }

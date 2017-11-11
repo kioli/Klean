@@ -39,7 +39,6 @@ internal class QuotePresenterTest {
     @Throws(Exception::class)
     fun `On destroy dispose use case and nullify view`() {
         quotePresenter.destroy()
-        verify(useCase, times(1)).dispose()
         assertNull(quotePresenter.view)
     }
 }

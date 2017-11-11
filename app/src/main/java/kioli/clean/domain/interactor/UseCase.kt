@@ -2,7 +2,6 @@ package kioli.clean.domain.interactor
 
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableObserver
 import kioli.clean.domain.executor.ThreadExecution
 import kioli.clean.domain.executor.ThreadPostExecution
@@ -18,6 +17,7 @@ internal abstract class UseCase<T, in Params> internal constructor(private val t
                                                                    private val postExecutionThread: ThreadPostExecution) {
 
     private val disposables: CompositeDisposable = CompositeDisposable()
+    var isExecuting = false
 
     /**
      * Builds an [Observable] which will be used when executing the current [UseCase].
@@ -32,11 +32,14 @@ internal abstract class UseCase<T, in Params> internal constructor(private val t
      * @param params Parameters (Optional) used to build/execute this use case.
      */
     fun execute(observer: DisposableObserver<T>?, params: Params?) {
-        observer?.let {
-            val observable = buildUseCaseObservable(params)
-                    .subscribeOn(threadExecutor.schedulerNonUiThread)
-                    .observeOn(postExecutionThread.schedulerUiThread)
-            addDisposable(observable.subscribeWith(it))
+        if (!isExecuting) {
+            observer?.let {
+                val observable = buildUseCaseObservable(params)
+                        .subscribeOn(threadExecutor.schedulerNonUiThread)
+                        .observeOn(postExecutionThread.schedulerUiThread)
+                isExecuting = true
+                disposables.add(observable.subscribeWith(it))
+            }
         }
     }
 
@@ -44,9 +47,5 @@ internal abstract class UseCase<T, in Params> internal constructor(private val t
         if (!disposables.isDisposed) {
             disposables.dispose()
         }
-    }
-
-    private fun addDisposable(disposable: Disposable?) {
-        disposable?.let { disposables.add(it) }
     }
 }

@@ -13,23 +13,18 @@ import javax.inject.Singleton
 @Module
 internal class TestAppModule {
     @Provides
-    @Singleton
     fun provideQuoteApi() = mock<QuoteApi>()
 
     @Provides
-    @Singleton
     fun provideDataStoreFactory() = mock<QuoteDataStoreFactory>()
 
     @Provides
-    @Singleton
     fun provideUseCase() = mock<QuoteUseCase>()
 
     @Provides
-    @Singleton
     fun provideMapper() = mock<QuoteModelDataMapper>()
 
     @Provides
-    @Singleton
     fun provideView() = mock<QuoteView>()
 
 }

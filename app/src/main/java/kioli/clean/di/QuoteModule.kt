@@ -26,6 +26,7 @@ internal open class QuoteModule {
                          presenter: QuotePresenter) = QuoteView(context, presenter)
 
     @Provides
+    @Singleton
     open fun providePresenter(useCase: QuoteUseCase,
                               mapper: QuoteModelDataMapper) = QuotePresenter(useCase, mapper)
 
