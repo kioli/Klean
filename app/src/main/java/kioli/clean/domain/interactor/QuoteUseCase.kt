@@ -4,12 +4,12 @@ import io.reactivex.Observable
 import kioli.clean.data.entity.Quote
 import kioli.clean.domain.executor.ThreadExecution
 import kioli.clean.domain.executor.ThreadPostExecution
-import kioli.clean.domain.repository.QuoteRepositoryI
+import kioli.clean.domain.repository.QuoteRepository
 
 /**
  * Implementation of [UseCase] that represents a use case for retrieving some getQuote
  */
-internal class QuoteUseCase constructor(private val quoteRepository: QuoteRepositoryI,
+internal class QuoteUseCase constructor(private val quoteRepository: QuoteRepository,
                                         threadOfExecution: ThreadExecution,
                                         threadOfPostExecution: ThreadPostExecution)
     : UseCase<Quote, Boolean>(threadOfExecution, threadOfPostExecution) {

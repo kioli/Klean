@@ -1,10 +1,7 @@
 package kioli.clean
 
 import android.app.Application
-import kioli.clean.di.AppComponent
-import kioli.clean.di.AppModule
-import kioli.clean.di.ContextModule
-import kioli.clean.di.DaggerAppComponent
+import kioli.clean.di.*
 
 internal class App : Application() {
 
@@ -16,8 +13,9 @@ internal class App : Application() {
         super.onCreate()
         component = DaggerAppComponent
                 .builder()
-                .appModule(AppModule())
+                .quoteModule(QuoteModule())
                 .contextModule(ContextModule(baseContext))
+                .threadModule(ThreadModule())
                 .build()
     }
 

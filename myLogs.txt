@@ -1,0 +1,108 @@
+:app:preBuild UP-TO-DATE
+:app:preDebugBuild
+:app:compileDebugAidl
+:app:compileDebugRenderscript
+:app:checkDebugManifest
+:app:generateDebugBuildConfig
+:app:generateDebugResValues
+:app:generateDebugResources
+:app:mergeDebugResources
+:app:createDebugCompatibleScreenManifests
+:app:processDebugManifest
+:app:splitsDiscoveryTaskDebug
+:app:processDebugResources
+:app:kaptGenerateStubsDebugKotlin
+Using Kotlin incremental compilation
+:app:kaptDebugKotlin
+:app:compileDebugKotlin
+Using Kotlin incremental compilation
+w: /Users/kioli/Desktop/Clean/app/src/main/java/kioli/clean/domain/repository/BaseRepository.kt: (16, 33): Unchecked cast: Observable<*>! to Observable<T>
+:app:prepareLintJar
+:app:generateDebugSources
+:app:javaPreCompileDebug
+:app:compileDebugJavaWithJavac
+:app:compileDebugNdk NO-SOURCE
+:app:compileDebugSources
+:app:mergeDebugShaders
+:app:compileDebugShaders
+:app:generateDebugAssets
+:app:mergeDebugAssets
+:app:transformClassesWithDexBuilderForDebug
+:app:transformDexArchiveWithExternalLibsDexMergerForDebug
+:app:transformDexArchiveWithDexMergerForDebug
+:app:mergeDebugJniLibFolders
+:app:transformNativeLibsWithMergeJniLibsForDebug
+:app:processDebugJavaRes NO-SOURCE
+:app:transformResourcesWithMergeJavaResForDebug
+:app:validateSigningDebug
+:app:packageDebug
+:app:assembleDebug
+:app:preReleaseBuild
+:app:compileReleaseAidl
+:app:compileReleaseRenderscript
+:app:checkReleaseManifest
+:app:generateReleaseBuildConfig
+:app:generateReleaseResValues
+:app:generateReleaseResources
+:app:mergeReleaseResources
+:app:createReleaseCompatibleScreenManifests
+:app:processReleaseManifest
+:app:splitsDiscoveryTaskRelease
+:app:processReleaseResources
+:app:kaptGenerateStubsReleaseKotlin
+Using Kotlin incremental compilation
+:app:kaptReleaseKotlin
+:app:compileReleaseKotlin
+Using Kotlin incremental compilation
+w: /Users/kioli/Desktop/Clean/app/src/main/java/kioli/clean/domain/repository/BaseRepository.kt: (16, 33): Unchecked cast: Observable<*>! to Observable<T>
+:app:generateReleaseSources
+:app:javaPreCompileRelease
+:app:compileReleaseJavaWithJavac
+:app:compileReleaseNdk NO-SOURCE
+:app:compileReleaseSources
+:app:mergeReleaseShaders
+:app:compileReleaseShaders
+:app:generateReleaseAssets
+:app:mergeReleaseAssets
+:app:transformClassesWithPreDexForRelease
+:app:transformDexWithDexForRelease
+:app:mergeReleaseJniLibFolders
+:app:transformNativeLibsWithMergeJniLibsForRelease
+:app:processReleaseJavaRes NO-SOURCE
+:app:transformResourcesWithMergeJavaResForRelease
+:app:packageRelease
+:app:lintVitalRelease SKIPPED
+:app:assembleRelease
+:app:assemble
+:app:lint
+Ran lint on variant debug: 8 issues found
+Ran lint on variant release: 8 issues found
+Wrote HTML report to file:///Users/kioli/Desktop/Clean/app/build/reports/lint-results.html
+Wrote XML report to file:///Users/kioli/Desktop/Clean/app/build/reports/lint-results.xml
+:app:kaptGenerateStubsDebugUnitTestKotlin
+Using Kotlin incremental compilation
+:app:kaptDebugUnitTestKotlin
+:app:compileDebugUnitTestKotlin
+Using Kotlin incremental compilation
+:app:preDebugUnitTestBuild UP-TO-DATE
+:app:javaPreCompileDebugUnitTest
+:app:compileDebugUnitTestJavaWithJavac
+:app:mockableAndroidJar
+:app:processDebugUnitTestJavaRes NO-SOURCE
+:app:testDebugUnitTest
+:app:kaptGenerateStubsReleaseUnitTestKotlin
+Using Kotlin incremental compilation
+:app:kaptReleaseUnitTestKotlin
+:app:compileReleaseUnitTestKotlin
+Using Kotlin incremental compilation
+:app:preReleaseUnitTestBuild UP-TO-DATE
+:app:javaPreCompileReleaseUnitTest
+:app:compileReleaseUnitTestJavaWithJavac
+:app:processReleaseUnitTestJavaRes NO-SOURCE
+:app:testReleaseUnitTest
+:app:test
+:app:check
+:app:build
+
+BUILD SUCCESSFUL in 40s
+67 actionable tasks: 67 executed

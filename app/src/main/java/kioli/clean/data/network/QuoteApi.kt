@@ -1,13 +1,14 @@
 package kioli.clean.data.network
 
 import io.reactivex.Observable
+import kioli.clean.BuildConfig
 import kioli.clean.data.entity.Quote
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import javax.inject.Singleton
 
-@Singleton
 class QuoteApi {
 
     private val endpoint = "http://api.forismatic.com/api/1.0/"
@@ -19,12 +20,12 @@ class QuoteApi {
                 .addConverterFactory(MoshiConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 
-//        if (BuildConfig.DEBUG) {
-//            val interceptor = HttpLoggingInterceptor()
-//            interceptor.level = HttpLoggingInterceptor.Level.BODY
-//            val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
-//            retrofitBuilder?.client(client)
-//        }
+        if (BuildConfig.DEBUG) {
+            val interceptor = HttpLoggingInterceptor()
+            interceptor.level = HttpLoggingInterceptor.Level.BODY
+            val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+            retrofitBuilder?.client(client)
+        }
 
         api = retrofitBuilder
                 .build()
